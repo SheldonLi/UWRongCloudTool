@@ -12,10 +12,10 @@
 
 
 ```
-/** 连接融云 */
+/** 连接融云(不设置登录用户的数据) */
 -(void)connectWithToken:(NSString *)token;
 
-/** 链接融云 */
+/** 链接融云(带用户模型) */
 -(void)connectWithToken:(NSString *)token userModel:(UWRongCloudUserModel *)userModel;
 
 /** 连接融云（带用户模型，成功失败回调处理） */

@@ -69,7 +69,9 @@
             rcim.globalMessageAvatarStyle = RC_USER_AVATAR_CYCLE;
             //  设置融云自身用户的信息
             if (userModel) {
-                rcim.currentUserInfo = [[RCUserInfo alloc] initWithUserId:userModel.userId name:userModel.name portrait:userModel.portrait];
+                rcim.currentUserInfo = [[RCUserInfo alloc] initWithUserId:userModel.userId
+                                                                     name:userModel.name
+                                                                 portrait:userModel.portrait];
             }
             if (success) {
                 success(userId);
@@ -93,7 +95,6 @@
 - (void)rongCloudLogOut {
     [[RCIM sharedRCIM] disconnect];
 }
-
 
 #pragma mark - RCIM代理方法
 /**
@@ -123,7 +124,6 @@
  *  @param left    剩余消息数
  */
 - (void)onRCIMReceiveMessage:(RCMessage *)message left:(int)left {
-
     UWRongCloudUserModel *userModel = [[UWRongCloudUserModel alloc] init];
     userModel.userId = message.content.senderUserInfo.userId;
     userModel.name = message.content.senderUserInfo.name;
@@ -131,7 +131,7 @@
     if (!userModel.userId) {
         return;
     }
-    BOOL isSuccess = [UWRongCloudSqlTool insertUserInfoWithUserInfoModel:userModel];
+    BOOL isSuccess = [UWRongCloudSqlTool setUserInfoWithUserInfoModel:userModel];
     if (isSuccess) {
         NSLog(@"保存用户信息成功");
     }
@@ -145,7 +145,6 @@
  */
 - (void)getUserInfoWithUserId:(NSString *)userId
                    completion:(void (^)(RCUserInfo *userInfo))completion {
-
     UWRongCloudUserModel *userModel = [UWRongCloudSqlTool getUserInfoWithUserId:userId];
 
     RCUserInfo *rcUser = [[RCUserInfo alloc] init];
@@ -160,7 +159,7 @@
 - (void)addPrivateConversationVieController:(UWRongCloudUserModel *)userModel
                                  completion:(void (^)(RCConversationViewController *conversationVC))
                                                 completion {
-    BOOL isSuccess = [UWRongCloudSqlTool insertUserInfoWithUserInfoModel:userModel];
+    BOOL isSuccess = [UWRongCloudSqlTool setUserInfoWithUserInfoModel:userModel];
     if (isSuccess) {
         NSLog(@"保存数据成功");
     }
@@ -177,12 +176,11 @@
 }
 
 - (void)updateUserInfo:(UWRongCloudUserModel *)userModel {
-    
     RCIM *rcim = [RCIM sharedRCIM];
     rcim.currentUserInfo.userId = userModel.userId;
     rcim.currentUserInfo.name = userModel.name;
     rcim.currentUserInfo.portraitUri = userModel.portrait;
-    BOOL isSuccess = [UWRongCloudSqlTool insertUserInfoWithUserInfoModel:userModel];
+    BOOL isSuccess = [UWRongCloudSqlTool setUserInfoWithUserInfoModel:userModel];
     if (isSuccess) {
         NSLog(@"保存数据成功");
     }

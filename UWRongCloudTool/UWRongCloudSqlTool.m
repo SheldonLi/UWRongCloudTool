@@ -19,7 +19,7 @@
  *
  *  @return 成功或失败
  */
-+ (BOOL)insertUserInfoWithUserInfoModel:(UWRongCloudUserModel *)userModel {
++ (BOOL)setUserInfoWithUserInfoModel:(UWRongCloudUserModel *)userModel {
     FMDatabase *database = [UWDBManager getDatabase];
     if (![database open]) {
         return NO;

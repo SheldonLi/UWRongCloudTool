@@ -18,7 +18,7 @@
  *
  *  @return 成功或失败
  */
-+ (BOOL)insertUserInfoWithUserInfoModel:(UWRongCloudUserModel *)userModel;
++ (BOOL)setUserInfoWithUserInfoModel:(UWRongCloudUserModel *)userModel;
 
 /**
  *  通过用户id获得一条用户信息
