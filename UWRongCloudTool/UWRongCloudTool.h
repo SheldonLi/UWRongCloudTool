@@ -56,8 +56,21 @@
 
 #pragma mark - 业务API
 
+/**
+ *  创建新的聊天控制器
+ *
+ *  @param userModel  聊天对象用户模型
+ *  @param completion 成功回调
+ */
 - (void)addPrivateConversationVieController:(UWRongCloudUserModel *)userModel
                                  completion:(void (^)(RCConversationViewController *conversationVC))
                                                 completion;
+
+/**
+ *  更新登录用户的融云信息
+ *
+ *  @param userModel 修改当前用户的数据模型
+ */
+- (void)updateUserInfo:(UWRongCloudUserModel *)userModel;
 
 @end

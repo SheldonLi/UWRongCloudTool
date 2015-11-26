@@ -176,4 +176,16 @@
     }
 }
 
+- (void)updateUserInfo:(UWRongCloudUserModel *)userModel {
+    
+    RCIM *rcim = [RCIM sharedRCIM];
+    rcim.currentUserInfo.userId = userModel.userId;
+    rcim.currentUserInfo.name = userModel.name;
+    rcim.currentUserInfo.portraitUri = userModel.portrait;
+    BOOL isSuccess = [UWRongCloudSqlTool insertUserInfoWithUserInfoModel:userModel];
+    if (isSuccess) {
+        NSLog(@"保存数据成功");
+    }
+}
+
 @end

@@ -29,6 +29,19 @@
     return self;
 }
 
+- (void)jsutLogin {
+    
+    NSDictionary *dict = @{@"mobile": @"18500527405", @"password": @"123456"};
+    [UWHttpTool postWithURL:@"/user/login" params:dict success:^(id responseObject) {
+        
+        NSLog(@"%@", responseObject);
+        NSString *imToken = responseObject[@"imToken"];
+        [[UWRongCloudTool sharedTool] connectWithToken:imToken];
+        
+    } failure:^(NSError *error) {
+        
+    }];
+}
 
 //重载函数，onSelectedTableRow
 //是选择会话列表之后的事件，该接口开放是为了便于您自定义跳转事件。在快速集成过程中，您只需要复制这段代码。
@@ -51,22 +64,6 @@
     CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 64);
     self.conversationListTableView.backgroundColor = [UIColor clearColor];
     self.conversationListTableView.tableFooterView = [[UIView alloc] init];
-}
-
-- (void)jsutLogin {
-    
-    
-    NSDictionary *dict = @{@"mobile": @"18500527405", @"password": @"123456"};
-    [UWHttpTool postWithURL:@"/user/login" params:dict success:^(id responseObject) {
-        
-        NSLog(@"%@", responseObject);
-        NSString *imToken = responseObject[@"imToken"];
-        [[UWRongCloudTool sharedTool] connectWithToken:imToken];
-        
-    } failure:^(NSError *error) {
-        
-    }];
-    
 }
 
 /**

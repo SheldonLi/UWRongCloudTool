@@ -28,7 +28,7 @@ FMDatabase *_dataBase;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         
-        NSString *fileName = [NSString stringWithFormat:@"RongCloud.sqlite"];
+        NSString *fileName = [NSString stringWithFormat:@"rongCloudUser.sqlite"];
         _dbPath = [DOCUMENT_PATH stringByAppendingPathComponent:fileName];
         _dataBase = [FMDatabase databaseWithPath:_dbPath];
         if (![_dataBase open]) {
@@ -44,8 +44,6 @@ FMDatabase *_dataBase;
             NSLog(@"创建表失败");
         }
     });
-
-
 }
 
 + (BOOL)initDB {

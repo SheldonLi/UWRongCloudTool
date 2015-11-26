@@ -8,6 +8,9 @@
 
 #import <RongIMKit/RongIMKit.h>
 
+/**
+ *  聊天界面控制器
+ */
 @interface UWChatViewController : RCConversationViewController
 
 @end
