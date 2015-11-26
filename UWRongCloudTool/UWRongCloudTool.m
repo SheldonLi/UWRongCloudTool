@@ -10,6 +10,7 @@
 #import "UWRongCloudUserModel.h"
 #import "UWRongCloudSqlTool.h"
 #import "UWChatViewController.h"
+#import "UWRongCloudUserModel.h"
 
 #define RONGCLOUD_IM_APPKEY @"p5tvi9dst1yk4"
 
@@ -29,20 +30,21 @@
     return rongCloudTool;
 }
 
+#pragma mark - 登录融云API
 - (void)connectWithToken:(NSString *)token {
-    [self connectWithToken:token success:nil error:nil tokenIncorrect:nil];
+    [self connectWithToken:token userModel:nil success:nil error:nil tokenIncorrect:nil];
 }
 
-- (void)connectWithToken:(NSString *)token userModel:(id)userModel {
-    // TODO: 怎么设置通用的用户model
+- (void)connectWithToken:(NSString *)token userModel:(UWRongCloudUserModel *)userModel {
+    [self connectWithToken:token userModel:userModel success:nil error:nil tokenIncorrect:nil];
 }
 
 - (void)connectWithToken:(NSString *)token
-                        success:(void (^)(NSString *userId))success
-                          error:(void (^)(RCConnectErrorCode status))error
-                 tokenIncorrect:(void (^)())tokenIncorrect {
+               userModel:(UWRongCloudUserModel *)userModel
+                 success:(void (^)(NSString *))success
+                   error:(void (^)(RCConnectErrorCode))error
+          tokenIncorrect:(void (^)())tokenIncorrect {
     RCIM *rcim = [RCIM sharedRCIM];
-    NSLog(@"%@", rcim.currentUserInfo);
     if (rcim.connectionStatusDelegate) {
         return;
     }
@@ -53,7 +55,6 @@
 
     [rcim connectWithToken:token
         success:^(NSString *userId) {
-            NSLog(@"连接融云成功");
             //  设置返回用户信息代理
             [rcim setUserInfoDataSource:self];
             //  设置接收消息代理
@@ -62,32 +63,27 @@
             [rcim setConnectionStatusDelegate:self];
             //  设置消息包含用户信息
             rcim.enableMessageAttachUserInfo = YES;
-
+            //  设置列表头像样式
             rcim.globalConversationAvatarStyle = RC_USER_AVATAR_CYCLE;
+            //  设置消息头像样式
             rcim.globalMessageAvatarStyle = RC_USER_AVATAR_CYCLE;
-
-            //                       AKChatUserModel *userModel = [[AKChatUserModel alloc] init];
-            //                       userModel.userId = userId;
-            //                       userModel.nickName = [StoreData storeObjectForKey:KEY_NAME];
-            //                       userModel.avatarFile = [StoreData
-            //                       storeObjectForKey:KEY_AVATAR];
-            //                       BOOL isSuccess = [DCRongCloudSqlTool
-            //                       insertUserInfoWithUserInfoModel:userModel];
-            //                       if (isSuccess) {
-            //                           NSLog(@"储存用户自己信息成功");
-            //                       }
-            //
-            //                       rcim.currentUserInfo = [[RCUserInfo alloc]
-            //                       initWithUserId:userModel.userId
-            //                                                                            name:userModel.nickName
-            //                                                                        portrait:userModel.avatarFile];
-
+            //  设置融云自身用户的信息
+            if (userModel) {
+                rcim.currentUserInfo = [[RCUserInfo alloc] initWithUserId:userModel.userId name:userModel.name portrait:userModel.portrait];
+            }
+            if (success) {
+                success(userId);
+            }
         }
         error:^(RCConnectErrorCode status) {
-            NSLog(@"连接融云失败");
+            if (error) {
+                error(status);
+            }
         }
         tokenIncorrect:^() {
-            NSLog(@"token无效");
+            if (tokenIncorrect) {
+                tokenIncorrect();
+            }
         }];
 }
 
@@ -98,8 +94,10 @@
     [[RCIM sharedRCIM] disconnect];
 }
 
+
+#pragma mark - RCIM代理方法
 /**
- *  网络状态变化。
+ *  网络状态变化。(RCIMConnectionStatusDelegate)
  *
  *  @param status 网络状态。
  */
@@ -119,54 +117,45 @@
 }
 
 /**
- *  接收消息到消息后执行
+ *  接收消息到消息后执行 (RCIMReceiveMessageDelegate)
  *
  *  @param message 接收到的消息
  *  @param left    剩余消息数
  */
 - (void)onRCIMReceiveMessage:(RCMessage *)message left:(int)left {
-    //    UIApplication *application = [UIApplication sharedApplication];
-    //    [application setApplicationIconBadgeNumber:left];
 
-    NSLog(@"%@", message);
-    // 自定义消息
-    if ([message.objectName isEqualToString:@"Robin:BizCardMessage"]) {
-        [[RCIMClient sharedRCIMClient] deleteMessages:@[ @(message.messageId) ]];
-
-    } else {
-        UWRongCloudUserModel *userModel = [[UWRongCloudUserModel alloc] init];
-        userModel.userId = message.content.senderUserInfo.userId;
-        userModel.nickName = message.content.senderUserInfo.name;
-        userModel.avatarFile = message.content.senderUserInfo.portraitUri;
-        if (!userModel.userId) {
-            return;
-        }
-        BOOL isSuccess = [UWRongCloudSqlTool insertUserInfoWithUserInfoModel:userModel];
-        if (isSuccess) {
-            NSLog(@"保存用户信息成功");
-        }
+    UWRongCloudUserModel *userModel = [[UWRongCloudUserModel alloc] init];
+    userModel.userId = message.content.senderUserInfo.userId;
+    userModel.name = message.content.senderUserInfo.name;
+    userModel.portrait = message.content.senderUserInfo.portraitUri;
+    if (!userModel.userId) {
+        return;
+    }
+    BOOL isSuccess = [UWRongCloudSqlTool insertUserInfoWithUserInfoModel:userModel];
+    if (isSuccess) {
+        NSLog(@"保存用户信息成功");
     }
 }
 
-#pragma mark - setUserInfoDataSource delegate
-/*
- * 此方法中要提供给融云用户的信息，建议缓存到本地，然后改方法每次从您的缓存返回
+/**
+ *  接收消息到消息后执行 (RCIMReceiveMessageDelegate)
+ *
+ *  @param message 接收到的消息
+ *  @param left    剩余消息数
  */
 - (void)getUserInfoWithUserId:(NSString *)userId
                    completion:(void (^)(RCUserInfo *userInfo))completion {
-    NSLog(@"__%s,__%@", __func__, userId);
 
     UWRongCloudUserModel *userModel = [UWRongCloudSqlTool getUserInfoWithUserId:userId];
 
     RCUserInfo *rcUser = [[RCUserInfo alloc] init];
     rcUser.userId = userId;
-    //???: 姓名，头像为空怎么处理
-    rcUser.name = userModel.nickName;
-    rcUser.portraitUri = userModel.avatarFile;
+    rcUser.name = userModel.name;
+    rcUser.portraitUri = userModel.portrait;
     return completion(rcUser);
 }
 
-#pragma mark - customFunction
+#pragma mark - 业务API
 
 - (void)addPrivateConversationVieController:(UWRongCloudUserModel *)userModel
                                  completion:(void (^)(RCConversationViewController *conversationVC))
@@ -179,8 +168,8 @@
     UWChatViewController *conversationVC = [[UWChatViewController alloc] init];
     conversationVC.conversationType = ConversationType_PRIVATE;
     conversationVC.targetId = userModel.userId;
-    conversationVC.userName = userModel.nickName;
-    conversationVC.title = userModel.nickName;
+    conversationVC.userName = userModel.name;
+    conversationVC.title = userModel.portrait;
 
     if (completion) {
         completion(conversationVC);

@@ -11,8 +11,8 @@
 @implementation UWRongCloudUserModel
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"userId:%@  nickName:%@  avatarFile:%@ ", _userId, _nickName,
-            _avatarFile];
+    return
+        [NSString stringWithFormat:@"userId:%@  name:%@  portrait:%@ ", _userId, _name, _portrait];
 }
 
 @end

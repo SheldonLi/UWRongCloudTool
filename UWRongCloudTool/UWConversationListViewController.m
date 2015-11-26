@@ -7,7 +7,7 @@
 //
 
 #import "UWConversationListViewController.h"
-//#import "UWChatViewController.h"
+#import "UWChatViewController.h"
 #import "UWHttpTool.h"
 #import "UWRongCloudTool.h"
 
@@ -16,8 +16,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"聊天列表";
-    
-    self.displayConversationTypeArray = @[ @(ConversationType_PRIVATE) ];
     
     [self setDisplayConversationTypes:@[ @(ConversationType_PRIVATE) ]];
     
@@ -37,12 +35,12 @@
 - (void)onSelectedTableRow:(RCConversationModelType)conversationModelType
          conversationModel:(RCConversationModel *)model
                atIndexPath:(NSIndexPath *)indexPath {
-//    UWChatViewController *conversationVC = [[UWChatViewController alloc] init];
-//    conversationVC.conversationType = model.conversationType;
-//    conversationVC.targetId = model.targetId;
-//    conversationVC.userName = model.conversationTitle;
-//    conversationVC.title = model.conversationTitle;
-//    [self.navigationController pushViewController:conversationVC animated:YES];
+    UWChatViewController *conversationVC = [[UWChatViewController alloc] init];
+    conversationVC.conversationType = model.conversationType;
+    conversationVC.targetId = model.targetId;
+    conversationVC.userName = model.conversationTitle;
+    conversationVC.title = model.conversationTitle;
+    [self.navigationController pushViewController:conversationVC animated:YES];
 }
 
 /**
@@ -77,9 +75,10 @@
 - (void)showEmptyConversationView {
     UIView *blankView = [[UIView alloc]
                          initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    blankView.backgroundColor = [UIColor whiteColor];
     
     UILabel *emptyLabel = [[UILabel alloc] init];
-    emptyLabel.text = @"您太深沉了，还没有聊天记录";
+    emptyLabel.text = @"没有聊天记录";
     emptyLabel.textAlignment = NSTextAlignmentCenter;
     emptyLabel.font = [UIFont systemFontOfSize:15];
     emptyLabel.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);

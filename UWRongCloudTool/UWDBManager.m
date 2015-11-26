@@ -36,13 +36,12 @@ FMDatabase *_dataBase;
         }
         
         NSString *sqlCreateTable =
-        [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS 't_rcuser' (userId INTEGER PRIMARY "
-         @"KEY AUTOINCREMENT, nickName , avatarFile);"];
+        [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS 't_rcuser' (userId INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, portrait TEXT);"];
         BOOL result = [_dataBase executeUpdate:sqlCreateTable];
         if (result) {
-            NSLog(@" 创建表成功");
+            NSLog(@"创建表成功");
         } else {
-            NSLog(@" 创建表失败");
+            NSLog(@"创建表失败");
         }
     });
 
@@ -83,8 +82,7 @@ FMDatabase *_dataBase;
         while (resultSet.next) {
             NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithCapacity:columnNum];
             for (int i = 0; i < columnNum; i++) {
-                // null 会设置为<null>
-                //                if (![resultSet columnIndexIsNull:i]) {}
+                
                 NSString *columnName = [resultSet columnNameForIndex:i];
                 id columnValue = [resultSet objectForColumnIndex:i];
                 [dict setObject:columnValue forKey:columnName];

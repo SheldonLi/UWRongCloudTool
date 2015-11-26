@@ -12,13 +12,38 @@
 
 @interface UWRongCloudTool : NSObject
 
+/**
+ *  工具类单例
+ */
 + (UWRongCloudTool *)sharedTool;
 
+#pragma mark - 登录融云API
+/**
+ *  连接融云
+ *
+ *  @param token 服务器端返回的登录token
+ */
 - (void)connectWithToken:(NSString *)token;
 
-- (void)connectWithToken:(NSString *)token userModel:(id)userModel;
+/**
+ *  链接融云
+ *
+ *  @param token     服务器端返回的登录token
+ *  @param userModel 用户数据模型
+ */
+- (void)connectWithToken:(NSString *)token userModel:(UWRongCloudUserModel *)userModel;
 
+/**
+ *  连接融云
+ *
+ *  @param token          服务器端返回的登录token
+ *  @param userModel      用户数据模型
+ *  @param success        成功回调
+ *  @param error          失败回调
+ *  @param tokenIncorrect token失效
+ */
 - (void)connectWithToken:(NSString *)token
+               userModel:(UWRongCloudUserModel *)userModel
                  success:(void (^)(NSString *userId))success
                    error:(void (^)(RCConnectErrorCode status))error
           tokenIncorrect:(void (^)())tokenIncorrect;
@@ -27,6 +52,9 @@
  *  断开连接
  */
 - (void)rongCloudLogOut;
+
+
+#pragma mark - 业务API
 
 - (void)addPrivateConversationVieController:(UWRongCloudUserModel *)userModel
                                  completion:(void (^)(RCConversationViewController *conversationVC))

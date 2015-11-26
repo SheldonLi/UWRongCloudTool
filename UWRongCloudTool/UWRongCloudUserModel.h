@@ -14,9 +14,9 @@
 @property (nonatomic, copy) NSString *userId;
 
 /** 昵称 */
-@property (nonatomic, copy) NSString *nickName;
+@property (nonatomic, copy) NSString *name;
 
 /** 头像 */
-@property (nonatomic, copy) NSString *avatarFile;
+@property (nonatomic, copy) NSString *portrait;
 
 @end

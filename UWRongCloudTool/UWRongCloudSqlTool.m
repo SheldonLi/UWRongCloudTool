@@ -34,7 +34,7 @@
         NSString *updateSql = [NSString
             stringWithFormat:
                 @"update t_rcuser set nickName = '%@',avatarFile = '%@' where userId = %d",
-                userModel.nickName, userModel.avatarFile, [userModel.userId intValue]];
+                userModel.name, userModel.portrait, [userModel.userId intValue]];
 
         BOOL updateResult = [database executeUpdate:updateSql];
 
@@ -43,7 +43,7 @@
         NSString *sql = [NSString
             stringWithFormat:
                 @"insert into t_rcuser (userId,nickName,avatarFile) values (%d,'%@','%@')",
-                [userModel.userId intValue], userModel.nickName, userModel.avatarFile];
+                [userModel.userId intValue], userModel.name, userModel.portrait];
 
         BOOL result = [database executeUpdate:sql];
 
@@ -73,19 +73,16 @@
 
     while ([result next]) {
         userInfoModel.userId = [result stringForColumn:@"userId"];
-        userInfoModel.nickName = [result stringForColumn:@"nickName"];
-        userInfoModel.avatarFile = [result stringForColumn:@"avatarFile"];
+        userInfoModel.name = [result stringForColumn:@"name"];
+        userInfoModel.portrait = [result stringForColumn:@"portrait"];
     }
     return userInfoModel;
 }
 
 + (BOOL)deleteAllUserInfo {
     FMDatabase *database = [UWDBManager getDatabase];
-
     NSString *sql = [NSString stringWithFormat:@"delete from t_rcuser"];
-
     BOOL isSucess = [database executeUpdate:sql];
-
     return isSucess;
 }
 
