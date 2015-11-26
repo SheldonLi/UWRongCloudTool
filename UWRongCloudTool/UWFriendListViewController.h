@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  UWFriendListViewController.h
 //  UWRongCloudTool
 //
 //  Created by SheldonLee on 15/11/26.
@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
 
+/**
+ *  好友列表控制器
+ */
+@interface UWFriendListViewController : UITableViewController
 
 @end
-
