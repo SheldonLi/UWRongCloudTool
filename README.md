@@ -7,13 +7,29 @@
 
 
 ###本框架主要处理用户数据的储存与查询
-- **UWRongCloudSqlTool**用于储存与查询用户数据
-- **UWRongCloudTool**提供封装融云业务的API
+
+**UWRongCloudTool**提供封装融云业务的API,实现了多个融云的代理方法。
 
 
+```
+/** 连接融云 */
+-(void)connectWithToken:(NSString *)token;
 
+/** 链接融云 */
+-(void)connectWithToken:(NSString *)token userModel:(UWRongCloudUserModel *)userModel;
 
+/** 连接融云（带用户模型，成功失败回调处理） */
+-(void)connectWithToken:(NSString *)token userModel:(UWRongCloudUserModel *)userModel success:(void (^)(NSString *userId))success error:(void (^)(RCConnectErrorCode status))error tokenIncorrect:(void (^)())tokenIncorrect;
 
+/** 断开连接 */
+-(void)rongCloudLogOut;
+
+/** 创建新的聊天控制器 */
+-(void)addPrivateConversationVieController:(UWRongCloudUserModel *)userModel completion:(void (^)(RCConversationViewController *conversationVC)) completion;
+
+/** 更新登录用户的融云信息 */
+-(void)updateUserInfo:(UWRongCloudUserModel *)userModel; 
+```
 
 
 
