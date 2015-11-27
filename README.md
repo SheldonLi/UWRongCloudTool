@@ -1,4 +1,5 @@
 #融云快速接入工具
+[![Build Status](https://travis-ci.org/SheldonLi/UWRongCloudTool.svg?branch=master)](https://travis-ci.org/SheldonLi/UWRongCloudTool)
 
 
 [融云官方: iOS SDK 2.0 开发指南](http://www.rongcloud.cn/docs/ios.html)
@@ -8,9 +9,9 @@
 
 ###本框架主要处理用户数据的储存与查询 
 
-```UWRongCloudVC```文件夹下有继承融云列表、融云会话的控制器 
+- UWRongCloudVC文件夹下有继承融云列表、融云会话的控制器 
 
-```UWRongCloudTool```文件夹存放管理用户数据工具类 
+- UWRongCloudTool文件夹存放管理用户数据工具类 
 
 其中**UWRongCloudTool类**:提供封装融云业务的API,实现了多个融云的代理方法。
 
