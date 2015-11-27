@@ -6,10 +6,11 @@
 >融云不维护和管理用户的基本信息（用户Id、昵称、头像）的获取、缓存、变更和同步。
 
 
-###本框架主要处理用户数据的储存与查询
+###本框架主要处理用户数据的储存与查询 
 
-```UWRongCloudVC```文件夹下有继承融云列表、融云会话的控制器
-```UWRongCloudTool```文件夹存放管理用户数据工具类
+```UWRongCloudVC```文件夹下有继承融云列表、融云会话的控制器 
+
+```UWRongCloudTool```文件夹存放管理用户数据工具类 
 
 其中**UWRongCloudTool类**:提供封装融云业务的API,实现了多个融云的代理方法。
 
@@ -33,11 +34,6 @@
 /** 更新登录用户的融云信息 */
 -(void)updateUserInfo:(UWRongCloudUserModel *)userModel; 
 ```
-
-
-
-
-
 
 
 

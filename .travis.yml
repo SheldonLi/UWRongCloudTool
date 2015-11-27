@@ -1,0 +1,3 @@
+language: objective-c
+xcode_workspace: UWRongCloudTool.xcworkspace
+xcode_scheme: UWRongCloudTool
