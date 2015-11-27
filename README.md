@@ -1,4 +1,4 @@
-##融云快速接入工具
+#融云快速接入工具
 
 
 [融云官方: iOS SDK 2.0 开发指南](http://www.rongcloud.cn/docs/ios.html)
@@ -8,14 +8,17 @@
 
 ###本框架主要处理用户数据的储存与查询
 
-**UWRongCloudTool**提供封装融云业务的API,实现了多个融云的代理方法。
+```UWRongCloudVC```文件夹下有继承融云列表、融云会话的控制器
+```UWRongCloudTool```文件夹存放管理用户数据工具类
+
+其中**UWRongCloudTool类**:提供封装融云业务的API,实现了多个融云的代理方法。
 
 
 ```
 /** 连接融云(不设置登录用户的数据) */
 -(void)connectWithToken:(NSString *)token;
 
-/** 链接融云(带用户模型) */
+/** 连接融云(带用户模型) */
 -(void)connectWithToken:(NSString *)token userModel:(UWRongCloudUserModel *)userModel;
 
 /** 连接融云（带用户模型，成功失败回调处理） */
@@ -30,6 +33,7 @@
 /** 更新登录用户的融云信息 */
 -(void)updateUserInfo:(UWRongCloudUserModel *)userModel; 
 ```
+
 
 
 

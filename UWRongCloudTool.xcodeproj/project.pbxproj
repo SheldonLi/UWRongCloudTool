@@ -15,14 +15,14 @@
 		BF5833101C06A2FD00E745D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF58330E1C06A2FD00E745D3 /* LaunchScreen.storyboard */; };
 		BF58331B1C06A2FD00E745D3 /* UWRongCloudToolTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF58331A1C06A2FD00E745D3 /* UWRongCloudToolTests.m */; };
 		BF5833261C06A2FD00E745D3 /* UWRongCloudToolUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5833251C06A2FD00E745D3 /* UWRongCloudToolUITests.m */; };
-		BF5833801C06B36D00E745D3 /* UWFriendListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF58337F1C06B36D00E745D3 /* UWFriendListViewController.m */; };
-		BF5833831C06B3F400E745D3 /* UWConversationListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5833821C06B3F400E745D3 /* UWConversationListViewController.m */; };
 		BF5833951C06E1C800E745D3 /* UWHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5833941C06E1C800E745D3 /* UWHttpTool.m */; };
-		BF5833A01C06EAAC00E745D3 /* UWChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5833971C06EAAC00E745D3 /* UWChatViewController.m */; };
-		BF5833A11C06EAAC00E745D3 /* UWDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5833991C06EAAC00E745D3 /* UWDBManager.m */; };
-		BF5833A21C06EAAC00E745D3 /* UWRongCloudSqlTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BF58339B1C06EAAC00E745D3 /* UWRongCloudSqlTool.m */; };
-		BF5833A31C06EAAC00E745D3 /* UWRongCloudTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BF58339D1C06EAAC00E745D3 /* UWRongCloudTool.m */; };
-		BF5833A41C06EAAC00E745D3 /* UWRongCloudUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF58339F1C06EAAC00E745D3 /* UWRongCloudUserModel.m */; };
+		BF5833B11C07FCC800E745D3 /* UWDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5833AA1C07FCC800E745D3 /* UWDBManager.m */; };
+		BF5833B21C07FCC800E745D3 /* UWRongCloudSqlTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5833AC1C07FCC800E745D3 /* UWRongCloudSqlTool.m */; };
+		BF5833B31C07FCC800E745D3 /* UWRongCloudTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5833AE1C07FCC800E745D3 /* UWRongCloudTool.m */; };
+		BF5833B41C07FCC800E745D3 /* UWRongCloudUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5833B01C07FCC800E745D3 /* UWRongCloudUserModel.m */; };
+		BF5833BC1C07FD0400E745D3 /* UWChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5833B71C07FD0400E745D3 /* UWChatViewController.m */; };
+		BF5833BD1C07FD0400E745D3 /* UWConversationListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5833B91C07FD0400E745D3 /* UWConversationListViewController.m */; };
+		BF5833BE1C07FD0400E745D3 /* UWFriendListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5833BB1C07FD0400E745D3 /* UWFriendListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,22 +60,22 @@
 		BF5833211C06A2FD00E745D3 /* UWRongCloudToolUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UWRongCloudToolUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF5833251C06A2FD00E745D3 /* UWRongCloudToolUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UWRongCloudToolUITests.m; sourceTree = "<group>"; };
 		BF5833271C06A2FD00E745D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BF58337E1C06B36D00E745D3 /* UWFriendListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UWFriendListViewController.h; sourceTree = "<group>"; };
-		BF58337F1C06B36D00E745D3 /* UWFriendListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UWFriendListViewController.m; sourceTree = "<group>"; };
-		BF5833811C06B3F400E745D3 /* UWConversationListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UWConversationListViewController.h; sourceTree = "<group>"; };
-		BF5833821C06B3F400E745D3 /* UWConversationListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UWConversationListViewController.m; sourceTree = "<group>"; };
 		BF5833931C06E1C800E745D3 /* UWHttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UWHttpTool.h; sourceTree = "<group>"; };
 		BF5833941C06E1C800E745D3 /* UWHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UWHttpTool.m; sourceTree = "<group>"; };
-		BF5833961C06EAAC00E745D3 /* UWChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UWChatViewController.h; sourceTree = "<group>"; };
-		BF5833971C06EAAC00E745D3 /* UWChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UWChatViewController.m; sourceTree = "<group>"; };
-		BF5833981C06EAAC00E745D3 /* UWDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UWDBManager.h; sourceTree = "<group>"; };
-		BF5833991C06EAAC00E745D3 /* UWDBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UWDBManager.m; sourceTree = "<group>"; };
-		BF58339A1C06EAAC00E745D3 /* UWRongCloudSqlTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UWRongCloudSqlTool.h; sourceTree = "<group>"; };
-		BF58339B1C06EAAC00E745D3 /* UWRongCloudSqlTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UWRongCloudSqlTool.m; sourceTree = "<group>"; };
-		BF58339C1C06EAAC00E745D3 /* UWRongCloudTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UWRongCloudTool.h; sourceTree = "<group>"; };
-		BF58339D1C06EAAC00E745D3 /* UWRongCloudTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UWRongCloudTool.m; sourceTree = "<group>"; };
-		BF58339E1C06EAAC00E745D3 /* UWRongCloudUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UWRongCloudUserModel.h; sourceTree = "<group>"; };
-		BF58339F1C06EAAC00E745D3 /* UWRongCloudUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UWRongCloudUserModel.m; sourceTree = "<group>"; };
+		BF5833A91C07FCC800E745D3 /* UWDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UWDBManager.h; sourceTree = "<group>"; };
+		BF5833AA1C07FCC800E745D3 /* UWDBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UWDBManager.m; sourceTree = "<group>"; };
+		BF5833AB1C07FCC800E745D3 /* UWRongCloudSqlTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UWRongCloudSqlTool.h; sourceTree = "<group>"; };
+		BF5833AC1C07FCC800E745D3 /* UWRongCloudSqlTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UWRongCloudSqlTool.m; sourceTree = "<group>"; };
+		BF5833AD1C07FCC800E745D3 /* UWRongCloudTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UWRongCloudTool.h; sourceTree = "<group>"; };
+		BF5833AE1C07FCC800E745D3 /* UWRongCloudTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UWRongCloudTool.m; sourceTree = "<group>"; };
+		BF5833AF1C07FCC800E745D3 /* UWRongCloudUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UWRongCloudUserModel.h; sourceTree = "<group>"; };
+		BF5833B01C07FCC800E745D3 /* UWRongCloudUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UWRongCloudUserModel.m; sourceTree = "<group>"; };
+		BF5833B61C07FD0400E745D3 /* UWChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UWChatViewController.h; sourceTree = "<group>"; };
+		BF5833B71C07FD0400E745D3 /* UWChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UWChatViewController.m; sourceTree = "<group>"; };
+		BF5833B81C07FD0400E745D3 /* UWConversationListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UWConversationListViewController.h; sourceTree = "<group>"; };
+		BF5833B91C07FD0400E745D3 /* UWConversationListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UWConversationListViewController.m; sourceTree = "<group>"; };
+		BF5833BA1C07FD0400E745D3 /* UWFriendListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UWFriendListViewController.h; sourceTree = "<group>"; };
+		BF5833BB1C07FD0400E745D3 /* UWFriendListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UWFriendListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +137,8 @@
 		BF5832FF1C06A2FD00E745D3 /* UWRongCloudTool */ = {
 			isa = PBXGroup;
 			children = (
+				BF5833B51C07FD0400E745D3 /* UWRongCloudVC */,
+				BF5833A81C07FCC800E745D3 /* UWRongCloudTool */,
 				BF5833931C06E1C800E745D3 /* UWHttpTool.h */,
 				BF5833941C06E1C800E745D3 /* UWHttpTool.m */,
 				BF5833031C06A2FD00E745D3 /* AppDelegate.h */,
@@ -146,20 +148,6 @@
 				BF58330E1C06A2FD00E745D3 /* LaunchScreen.storyboard */,
 				BF5833111C06A2FD00E745D3 /* Info.plist */,
 				BF5833001C06A2FD00E745D3 /* Supporting Files */,
-				BF58337E1C06B36D00E745D3 /* UWFriendListViewController.h */,
-				BF58337F1C06B36D00E745D3 /* UWFriendListViewController.m */,
-				BF5833811C06B3F400E745D3 /* UWConversationListViewController.h */,
-				BF5833821C06B3F400E745D3 /* UWConversationListViewController.m */,
-				BF5833961C06EAAC00E745D3 /* UWChatViewController.h */,
-				BF5833971C06EAAC00E745D3 /* UWChatViewController.m */,
-				BF5833981C06EAAC00E745D3 /* UWDBManager.h */,
-				BF5833991C06EAAC00E745D3 /* UWDBManager.m */,
-				BF58339A1C06EAAC00E745D3 /* UWRongCloudSqlTool.h */,
-				BF58339B1C06EAAC00E745D3 /* UWRongCloudSqlTool.m */,
-				BF58339C1C06EAAC00E745D3 /* UWRongCloudTool.h */,
-				BF58339D1C06EAAC00E745D3 /* UWRongCloudTool.m */,
-				BF58339E1C06EAAC00E745D3 /* UWRongCloudUserModel.h */,
-				BF58339F1C06EAAC00E745D3 /* UWRongCloudUserModel.m */,
 			);
 			path = UWRongCloudTool;
 			sourceTree = "<group>";
@@ -188,6 +176,34 @@
 				BF5833271C06A2FD00E745D3 /* Info.plist */,
 			);
 			path = UWRongCloudToolUITests;
+			sourceTree = "<group>";
+		};
+		BF5833A81C07FCC800E745D3 /* UWRongCloudTool */ = {
+			isa = PBXGroup;
+			children = (
+				BF5833A91C07FCC800E745D3 /* UWDBManager.h */,
+				BF5833AA1C07FCC800E745D3 /* UWDBManager.m */,
+				BF5833AB1C07FCC800E745D3 /* UWRongCloudSqlTool.h */,
+				BF5833AC1C07FCC800E745D3 /* UWRongCloudSqlTool.m */,
+				BF5833AD1C07FCC800E745D3 /* UWRongCloudTool.h */,
+				BF5833AE1C07FCC800E745D3 /* UWRongCloudTool.m */,
+				BF5833AF1C07FCC800E745D3 /* UWRongCloudUserModel.h */,
+				BF5833B01C07FCC800E745D3 /* UWRongCloudUserModel.m */,
+			);
+			path = UWRongCloudTool;
+			sourceTree = "<group>";
+		};
+		BF5833B51C07FD0400E745D3 /* UWRongCloudVC */ = {
+			isa = PBXGroup;
+			children = (
+				BF5833B61C07FD0400E745D3 /* UWChatViewController.h */,
+				BF5833B71C07FD0400E745D3 /* UWChatViewController.m */,
+				BF5833B81C07FD0400E745D3 /* UWConversationListViewController.h */,
+				BF5833B91C07FD0400E745D3 /* UWConversationListViewController.m */,
+				BF5833BA1C07FD0400E745D3 /* UWFriendListViewController.h */,
+				BF5833BB1C07FD0400E745D3 /* UWFriendListViewController.m */,
+			);
+			path = UWRongCloudVC;
 			sourceTree = "<group>";
 		};
 		D23B8501262C59E38830232D /* Pods */ = {
@@ -366,15 +382,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF5833051C06A2FD00E745D3 /* AppDelegate.m in Sources */,
-				BF5833831C06B3F400E745D3 /* UWConversationListViewController.m in Sources */,
-				BF5833A01C06EAAC00E745D3 /* UWChatViewController.m in Sources */,
-				BF5833801C06B36D00E745D3 /* UWFriendListViewController.m in Sources */,
-				BF5833A11C06EAAC00E745D3 /* UWDBManager.m in Sources */,
+				BF5833BE1C07FD0400E745D3 /* UWFriendListViewController.m in Sources */,
+				BF5833B11C07FCC800E745D3 /* UWDBManager.m in Sources */,
 				BF5833951C06E1C800E745D3 /* UWHttpTool.m in Sources */,
-				BF5833A41C06EAAC00E745D3 /* UWRongCloudUserModel.m in Sources */,
-				BF5833A21C06EAAC00E745D3 /* UWRongCloudSqlTool.m in Sources */,
+				BF5833B41C07FCC800E745D3 /* UWRongCloudUserModel.m in Sources */,
+				BF5833BC1C07FD0400E745D3 /* UWChatViewController.m in Sources */,
+				BF5833B21C07FCC800E745D3 /* UWRongCloudSqlTool.m in Sources */,
 				BF5833021C06A2FD00E745D3 /* main.m in Sources */,
-				BF5833A31C06EAAC00E745D3 /* UWRongCloudTool.m in Sources */,
+				BF5833B31C07FCC800E745D3 /* UWRongCloudTool.m in Sources */,
+				BF5833BD1C07FD0400E745D3 /* UWConversationListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
