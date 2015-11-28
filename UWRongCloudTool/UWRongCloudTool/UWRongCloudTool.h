@@ -71,6 +71,11 @@
  *
  *  @param userModel 修改当前用户的数据模型
  */
-- (void)updateUserInfo:(UWRongCloudUserModel *)userModel;
+- (void)refreshUserInfo:(UWRongCloudUserModel *)userModel;
+
+/**
+ *  是否建立连接
+ */
+- (BOOL)isConnecting;
 
 @end

@@ -41,3 +41,4 @@
 一些tips:	
 
 1.推送：app进程被杀死后，融云无法推送消息，因此需要完整的推送功能的话还需重新加上苹果原生或极光等推送服务。
+2.继承RCConversationListViewController的好友列表，若未登录融云，会出现BAD_EXC_ACCESS的崩溃，此崩溃出现在列表控制器的viewWillAppear方法，注释[super viewWillAppear]即可。

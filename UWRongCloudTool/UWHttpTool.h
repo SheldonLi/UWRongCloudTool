@@ -10,8 +10,8 @@
 
 @interface UWHttpTool : NSObject
 
-typedef void (^successBlock)(id responseObject);
-typedef void (^failureBlock)(NSError *error);
+typedef void (^successBlock)(id operation, id responseObject);
+typedef void (^failureBlock)(id operation, NSError *error);
 
 /**
  *  get请求

@@ -9,8 +9,7 @@
 //TODO:
 /*
     1.storyboard加载崩溃
-    2.没拿到token时，切换到“聊天列表”崩溃
-    3.推送添加
+    2.推送添加
  
  
  
@@ -46,7 +45,7 @@
     [tabBarViewController setViewControllers:@[navFriendListVC, navConversationList]];
 
     [self.window makeKeyAndVisible];
-
+    
     return YES;
 }
 

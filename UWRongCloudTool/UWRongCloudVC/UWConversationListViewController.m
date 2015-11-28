@@ -17,6 +17,7 @@
     [super viewDidLoad];
 
     [self setDisplayConversationTypes:@[ @(ConversationType_PRIVATE) ]];
+    [self setTableViewStatus];
 }
 
 - (instancetype)init {
@@ -28,19 +29,30 @@
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    if (![[UWRongCloudTool sharedTool] isConnecting]) {
+        UIAlertController *alert =
+            [UIAlertController alertControllerWithTitle:@"未连接上融云，请重试 "
+                                                message:nil
+                                         preferredStyle:UIAlertControllerStyleAlert];
+        [alert addAction:[UIAlertAction actionWithTitle:@"确定"
+                                                  style:UIAlertActionStyleDefault
+                                                handler:nil]];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
+}
+
 - (void)jsutLogin {
     [UWHttpTool getWithURL:@"/user/imLisi"
         params:nil
-        success:^(id responseObject) {
-
+        success:^(id operation, id responseObject) {
             NSLog(@"%@", responseObject);
             if (responseObject) {
                 NSString *imToken = responseObject[@"imToken"];
                 [[UWRongCloudTool sharedTool] connectWithToken:imToken];
             }
         }
-        failure:^(NSError *error) {
-
+        failure:^(id operation, NSError *error) {
             NSLog(@"%@", error);
         }];
 }

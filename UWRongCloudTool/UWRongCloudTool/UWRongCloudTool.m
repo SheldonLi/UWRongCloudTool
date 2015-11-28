@@ -45,7 +45,7 @@
                    error:(void (^)(RCConnectErrorCode))error
           tokenIncorrect:(void (^)())tokenIncorrect {
     RCIM *rcim = [RCIM sharedRCIM];
-    if (rcim.connectionStatusDelegate) {
+    if ([self isConnecting]) {
         return;
     }
     [rcim initWithAppKey:RONGCLOUD_IM_APPKEY];
@@ -175,15 +175,27 @@
     }
 }
 
-- (void)updateUserInfo:(UWRongCloudUserModel *)userModel {
+- (void)refreshUserInfo:(UWRongCloudUserModel *)userModel {
+    
+    RCUserInfo *userInfo = [[RCUserInfo alloc] init];
+    userInfo.userId = userModel.userId;
+    userInfo.name = userModel.name;
+    userInfo.portraitUri = userModel.portrait;
     RCIM *rcim = [RCIM sharedRCIM];
-    rcim.currentUserInfo.userId = userModel.userId;
-    rcim.currentUserInfo.name = userModel.name;
-    rcim.currentUserInfo.portraitUri = userModel.portrait;
+    [rcim refreshUserInfoCache:userInfo withUserId:userInfo.userId];
     BOOL isSuccess = [UWRongCloudSqlTool setUserInfoWithUserInfoModel:userModel];
     if (isSuccess) {
         NSLog(@"保存数据成功");
     }
+}
+
+- (BOOL)isConnecting {
+    
+    RCIM *rcim = [RCIM sharedRCIM];
+    if (rcim.connectionStatusDelegate) {
+        return YES;
+    }
+    return NO;
 }
 
 @end
