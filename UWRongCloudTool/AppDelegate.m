@@ -6,9 +6,22 @@
 //  Copyright © 2015年 Sheldon. All rights reserved.
 //
 
+//TODO:
+/*
+    1.storyboard加载崩溃
+    2.没拿到token时，切换到“聊天列表”崩溃
+    3.推送添加
+ 
+ 
+ 
+ 
+ */
+
 #import "AppDelegate.h"
 #import "UWFriendListViewController.h"
 #import "UWConversationListViewController.h"
+#import "UWHttpTool.h"
+#import "UWRongCloudTool.h"
 
 @interface AppDelegate ()
 
@@ -18,6 +31,7 @@
 
 - (BOOL)application:(UIApplication *)application
     didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
 

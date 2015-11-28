@@ -15,14 +15,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"聊天列表";
-    
+
     [self setDisplayConversationTypes:@[ @(ConversationType_PRIVATE) ]];
-    
 }
 
 - (instancetype)init {
     if (self = [super init]) {
+        self.title = @"聊天列表";
         self.displayConversationTypeArray = @[ @(ConversationType_PRIVATE) ];
         [self jsutLogin];
     }
@@ -30,17 +29,20 @@
 }
 
 - (void)jsutLogin {
-    
-    NSDictionary *dict = @{@"mobile": @"18500527405", @"password": @"123456"};
-    [UWHttpTool postWithURL:@"/user/login" params:dict success:^(id responseObject) {
-        
-        NSLog(@"%@", responseObject);
-        NSString *imToken = responseObject[@"imToken"];
-        [[UWRongCloudTool sharedTool] connectWithToken:imToken];
-        
-    } failure:^(NSError *error) {
-        
-    }];
+    [UWHttpTool getWithURL:@"/user/imLisi"
+        params:nil
+        success:^(id responseObject) {
+
+            NSLog(@"%@", responseObject);
+            if (responseObject) {
+                NSString *imToken = responseObject[@"imToken"];
+                [[UWRongCloudTool sharedTool] connectWithToken:imToken];
+            }
+        }
+        failure:^(NSError *error) {
+
+            NSLog(@"%@", error);
+        }];
 }
 
 //重载函数，onSelectedTableRow
@@ -61,7 +63,7 @@
  */
 - (void)setTableViewStatus {
     self.conversationListTableView.frame =
-    CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 64);
+        CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 64);
     self.conversationListTableView.backgroundColor = [UIColor clearColor];
     self.conversationListTableView.tableFooterView = [[UIView alloc] init];
 }
@@ -71,16 +73,16 @@
  */
 - (void)showEmptyConversationView {
     UIView *blankView = [[UIView alloc]
-                         initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+        initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     blankView.backgroundColor = [UIColor whiteColor];
-    
+
     UILabel *emptyLabel = [[UILabel alloc] init];
     emptyLabel.text = @"没有聊天记录";
     emptyLabel.textAlignment = NSTextAlignmentCenter;
     emptyLabel.font = [UIFont systemFontOfSize:15];
     emptyLabel.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     emptyLabel.center = self.view.center;
-    
+
     [blankView addSubview:emptyLabel];
     self.emptyConversationView = blankView;
     [self.view addSubview:self.emptyConversationView];
