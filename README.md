@@ -1,5 +1,5 @@
-#融云快速接入工具
-[![Build Status](https://travis-ci.org/SheldonLi/UWRongCloudTool.svg?branch=master)](https://travis-ci.org/SheldonLi/UWRongCloudTool)
+#融云快速接入工具[![Build Status](https://travis-ci.org/SheldonLi/UWRongCloudTool.svg?branch=master)](https://travis-ci.org/SheldonLi/UWRongCloudTool)
+
 
 
 [融云官方: iOS SDK 2.0 开发指南](http://www.rongcloud.cn/docs/ios.html)

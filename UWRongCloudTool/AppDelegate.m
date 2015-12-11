@@ -10,9 +10,7 @@
 /*
     1.storyboard加载崩溃
     2.推送添加
- 
- 
- 
+
  
  */
 
@@ -31,20 +29,20 @@
 - (BOOL)application:(UIApplication *)application
     didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.backgroundColor = [UIColor whiteColor];
-
-    UITabBarController *tabBarViewController = [[UITabBarController alloc] init];
-    self.window.rootViewController = tabBarViewController;
-    
-    UWFriendListViewController *friendListVC = [[UWFriendListViewController alloc] init];
-    UINavigationController *navFriendListVC = [[UINavigationController alloc] initWithRootViewController:friendListVC];
-    UWConversationListViewController *conversationListVC = [[UWConversationListViewController alloc] init];
-    UINavigationController *navConversationList = [[UINavigationController alloc] initWithRootViewController:conversationListVC];
-    
-    [tabBarViewController setViewControllers:@[navFriendListVC, navConversationList]];
-
-    [self.window makeKeyAndVisible];
+//    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+//    self.window.backgroundColor = [UIColor whiteColor];
+//
+//    UITabBarController *tabBarViewController = [[UITabBarController alloc] init];
+//    self.window.rootViewController = tabBarViewController;
+//    
+//    UWFriendListViewController *friendListVC = [[UWFriendListViewController alloc] init];
+//    UINavigationController *navFriendListVC = [[UINavigationController alloc] initWithRootViewController:friendListVC];
+//    UWConversationListViewController *conversationListVC = [[UWConversationListViewController alloc] init];
+//    UINavigationController *navConversationList = [[UINavigationController alloc] initWithRootViewController:conversationListVC];
+//    
+//    [tabBarViewController setViewControllers:@[navFriendListVC, navConversationList]];
+//
+//    [self.window makeKeyAndVisible];
     
     return YES;
 }
